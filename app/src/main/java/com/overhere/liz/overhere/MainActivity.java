@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d(TAG,"User ID - " + String.valueOf(AndroidUser.getInstance().getUser_id()));
         if(AndroidUser.getInstance().getUser_id() == 0)
         {
-
             AndroidUser.getInstance().setPassword(pref.getString("password", null));
             AndroidUser.getInstance().setUsername(pref.getString("username", null));
 
@@ -286,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         if (numbers != null) {
             for (String no : numbers) {
-                //smsManager.sendTextMessage(no, null, message, null, null);
+                smsManager.sendTextMessage(no, null, message, null, null);
             }
             Log.d(TAG, "Texts sent!");
         }

@@ -68,7 +68,6 @@ public class GeofenceService extends IntentService {
             }
         }
         }
-
     };
 
     public GeofenceService() {
@@ -77,7 +76,6 @@ public class GeofenceService extends IntentService {
                 .addConverterFactory(GsonConverterFactory.create()).build();
         RetrofitInterface restInt = retrofit.create(RetrofitInterface.class);
         httpSender = new HttpSender(restInt); //sends http requests to rest service
-
     }
 
     @Override

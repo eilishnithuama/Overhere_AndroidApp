@@ -74,15 +74,13 @@ public class ActivityRecognitionService extends IntentService implements SensorE
                     if(s.getId() == alertId) {
                         //Dismiss the active notification
                         mNotificationManager.cancel(alertId);
-                        //sendAlertMessage();
+                        sendAlertMessage();
                         UserEvent ue = new UserEvent();
                         ue.setUser_id(AndroidUser.getInstance().getUser_id());
                         ue.setTimestamp(fall.getTimestamp());
                         ue.setEvent_type("Fall");
                         ue.setLastLocation(AndroidUser.getInstance().getLastKnownLocation());
                         httpSender.httpSendUserEventInformation(ue);
-
-
                     }
                 }
                 Log.d(TAG,"Monitoring turned back on");
@@ -211,7 +209,10 @@ public class ActivityRecognitionService extends IntentService implements SensorE
                 editor.putFloat("MAX_ACCEL_VALUE",(float)maxReading);
             }
 
-            httpSender.httpSendFallInformation(fall);
+            if(AndroidUser.getInstance().getUser_id() != 0){
+                httpSender.httpSendFallInformation(fall);
+            }
+
         }
     }
 

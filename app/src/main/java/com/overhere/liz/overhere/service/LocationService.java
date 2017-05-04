@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -101,8 +102,27 @@ public class LocationService extends Service implements
 
         gps.setUser_id(AndroidUser.getInstance().getUser_id());
         AndroidUser.getInstance().setLastKnownLocation(gps);
+
         if(AndroidUser.getInstance().getUser_id() != 0){
             httpSender.httpSendGPSInformation(gps);
+        }
+        else{
+            //Has logged in before but has opened the app again so need to get the rest of the information
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("PREFERENCES", MODE_PRIVATE);
+            Log.d(TAG,"User ID - " + String.valueOf(AndroidUser.getInstance().getUser_id()));
+            if(AndroidUser.getInstance().getUser_id() == 0)
+            {
+                AndroidUser.getInstance().setPassword(pref.getString("password", null));
+                AndroidUser.getInstance().setUsername(pref.getString("username", null));
+
+                Retrofit retrofit = new Retrofit.Builder().baseUrl(getString(R.string.webUrl))
+                        .addConverterFactory(GsonConverterFactory.create()).build();
+                RetrofitInterface restInt = retrofit.create(RetrofitInterface.class);
+                HttpSender httpSender = new HttpSender(restInt); //sends http requests to rest service
+
+                httpSender.getUser(AndroidUser.getInstance());
+                Log.d(TAG,"User ID - " + AndroidUser.getInstance());
+            }
         }
     }
 
