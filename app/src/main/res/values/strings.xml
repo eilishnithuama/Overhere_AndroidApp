@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">OverHere</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="menuItem1">Fall Monitoring</string>
+    <string name="menuItem2">Heart Rate Monitoring</string>
+    <string name="resource2Text"></string>
+    <string name="resource2Value"></string>
+    <string name="resource3Text"></string>
+    <string name="resource3Value"></string>
+    <string name="fall_alert_title">Oh No!!</string>
+    <string name="acceleration_text">Acceleration:</string>
+    <string name="acceleration_value">XXXX</string>
+    <string name="roll_text">Roll:</string>
+    <string name="roll_value">XXXX</string>
+    <string name="pitch_text">Pitch:</string>
+    <string name="pitch_value">XXXX</string>
+    <string name="exportDb">Export DB</string>
+    <string name="longitudeText">Longitude:</string>
+    <string name="latitudeText">Latitude:</string>
+    <string name="lastUpdateTime">Location Last Updated:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_gps_fragment">Hello GPS fragment</string>
+    <string name="hello_accel_fragment">Hello Accel fragment</string>
+    <string name="hello_heart_fragment">Hello Heart fragment</string>
+
+    <string name="title_activity_splash_screen">Over Here</string>
+    <string name="title_activity_accel_view">AccelViewActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_heart_rate">HeartRateActivity</string>
+    <string name="title_activity_login">Log In</string>
+    <string name="heart_alert">Heart Alert Button</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This username is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">Login failed. Please try again</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">Contacts permissions are needed for providing email
+        completions.
+    </string>
+
+    <string name="webUrl">https://guarded-falls-61506.herokuapp.com/</string>
+    <string name="prompt_cancel">Cancel</string>
+    <string name="location_not_enabled">Location is not enabled</string>
+    <string name="open_location_settings">Please enable location in the settings</string>
+</resources>
